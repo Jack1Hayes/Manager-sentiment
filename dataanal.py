@@ -16,7 +16,7 @@ from textblob import TextBlob
 from datetime import datetime, timedelta
 
 
-Twitter_table = pd.read_csv(r'C:\Users\Hayes\OneDrive\Documents\Data_sets\data from web\TwitterHandle+Manager_names_Table.csv')  
+Twitter_table = pd.read_csv('file where TwitterHandle+Manager_names_Table.csv is located')  
     
 def sentiment_scores(text_data):
 
@@ -58,7 +58,7 @@ time = (datetime.now()-timedelta(days=21))
 
 for i in Twitter_table.index:
     try:
-        anal_data = pd.read_csv(r'C:\Users\Hayes\OneDrive\Documents\Data_sets\Tweet.0\test'+str(Twitter_table['Club'][i][:3])+str(Twitter_table['Club'][i][-1])+'.csv')
+        anal_data = pd.read_csv('file path for Twitter table'+str(Twitter_table['Club'][i][:3])+str(Twitter_table['Club'][i][-1])+'.csv')
         if datetime.strptime(anal_data['created_at'][i][:19], '%Y-%m-%d %H:%M:%S') > time:
             df = anal_data['text']
             text_data = pd.DataFrame(df, columns = ['text'])
@@ -88,8 +88,8 @@ scores_data = {'Team': Twitter_table['Club'],
                 'positive score': posarray}
 scores_table = pd.DataFrame(scores_data)
 print(scores_table)
-Final_Table = pd.read_csv(r'C:\Users\Hayes\OneDrive\Documents\Data_sets\data from web\EPL+Manager_Table.csv')
+Final_Table = pd.read_csv('file path for EPL+Manager_Table.csv')
 Final_Table_Data = pd.merge(scores_table, Final_Table, left_on=['Team'], 
              right_on= ['Team'], how='left')
 
-Final_Table_Data.to_csv(r'C:\Users\Hayes\OneDrive\Documents\Data_sets\Final_Tables\Week5.csv' , index = False)
+Final_Table_Data.to_csv('file path and name of sentiment data.csv' , index = False)
