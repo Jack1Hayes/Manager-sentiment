@@ -12,11 +12,11 @@ from textblob import TextBlob
 
 
 # Connecting to your Twitter Developer APIs
-api_key= 'kkNqG6QlAJfAUwkaHANj0EGv4' 
-api_secret= 'UXlRuPxuBI81iKB3oWU8lzj2g5d22eRm2rkK7klzYaQFHUFkd9'
-access_token= '1436025732-uQbqEAxbG4MYFyCksAeK5EvYx6iJldguIvBzeoK'
-access_token_secret= '96l7QHPdFgfYYI8l6y7PDQ1jNTeHjKCjUiAMKKhWIiZ4u'
-bearer_token= 'AAAAAAAAAAAAAAAAAAAAALAcfwEAAAAAws5L8IRN6AdaSwFRJ1buXqVK1L4%3DiONfYZq9Uv95GaqyIjrki37dEwTKwD1UD1NBu6FoR4Fk5iKPTw'
+api_key= 'Twitter api key' 
+api_secret= 'Twitter api sectret key'
+access_token= 'Twitter access token'
+access_token_secret= 'twitter secret access token'
+bearer_token= 'twitter bearer token'
 
 client = tweepy.Client(bearer_token)
 # Authenticating the APIs
@@ -24,7 +24,7 @@ auth = tweepy.OAuthHandler(api_key, api_secret)
 auth.set_access_token(access_token, access_token_secret)
 api = tweepy.API(auth, wait_on_rate_limit=True)
 
-Twitter_table = pd.read_csv(r'C:\Users\Hayes\OneDrive\Documents\Data_sets\data from web\TwitterHandle+Manager_names_Table.csv')
+Twitter_table = pd.read_csv('file path for TwitterHandle+Manager_names_Table.csv')
 
 
 # Define the search term and the date_since date as variables
@@ -34,7 +34,7 @@ def get_tweets():
 
     for i in Twitter_table.index:
         headers = pd.DataFrame(columns=['created_at','text', 'source','verified', 'like_count', 'reply_count','retweet_count','quote_count'])
-        headers.to_csv(r'C:\Users\Hayes\OneDrive\Documents\Data_sets\Tweet.0\test'+str(Twitter_table['Club'][i][:3])+str(Twitter_table['Club'][i][-1])+'.csv',mode='w+',  index = False)
+        headers.to_csv('file path for Twitter table'+str(Twitter_table['Club'][i][:3])+str(Twitter_table['Club'][i][-1])+'.csv',mode='w+',  index = False)
         for j in range(6):
             try:
                 query = "("+(str(Twitter_table['last name'][i])+ " OR " + str(Twitter_table['first name'][i]) + ") lang:en -is:retweet to:"+str(Twitter_table['Twiiter name'][i])+" @"+str(Twitter_table['Twiiter name'][i]))
@@ -74,7 +74,7 @@ def get_tweets():
                 tweets_df.head()
                 #saving to csvpd.DataFrame(columns=['A','B','C','D','E','F','G'])
                                 
-                tweets_df.to_csv(r'C:\Users\Hayes\OneDrive\Documents\Data_sets\Tweet.0\test'+str(Twitter_table['Club'][i][:3])+str(Twitter_table['Club'][i][-1])+'.csv' ,mode='a',header = False, index = False)
+                tweets_df.to_csv('file path for twitter table'+str(Twitter_table['Club'][i][:3])+str(Twitter_table['Club'][i][-1])+'.csv' ,mode='a',header = False, index = False)
             except KeyError:
                 pass
         
