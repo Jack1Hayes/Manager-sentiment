@@ -65,7 +65,7 @@ Twitter_table = pd.merge(First_Single_manager_names, Team_Twitter, left_on=['Clu
              right_on= ['Club'], how='left')
 
 #save final tables
-Final_Table.to_csv(r'C:\Users\Hayes\OneDrive\Documents\Data_sets\data from web\EPL+Manager_Table.csv' ,mode='w+',  index = False)
-Twitter_table.to_csv(r'C:\Users\Hayes\OneDrive\Documents\Data_sets\data from web\TwitterHandle+Manager_names_Table.csv' ,mode='w+',  index = False)
-data.to_csv(r'C:\Users\Hayes\OneDrive\Documents\Data_sets\data from web\AllManager_names_Table.csv' ,mode='w+',  index = False)
+Final_Table.to_csv('file path for EPL+Manager_Table.csv' ,mode='w+',  index = False)
+Twitter_table.to_csv('file path for TwitterHandle+Manager_names_Table.csv' ,mode='w+',  index = False)
+data.to_csv('file path for AllManager_names_Table.csv' ,mode='w+',  index = False)
 
