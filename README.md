@@ -12,7 +12,7 @@ requests
 BeautifulSoup
 seaborn
 
-The Twitter accessor will acess tweets about managers of different clubs for later analysis.
+The Twitter accessor will acess tweets about managers of different clubs for later analysis. You will reqire a tweepy account and cdes to use this step.
 
 Twitter accessor prerequisits:
 
