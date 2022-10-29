@@ -1,7 +1,7 @@
 # Manager-setiment
 Sentiment analysis of managers in EPL
 
-This project contains 3 programs that can be combined but are more efficient when used separatly if outside of a personally created GUI.
+This project contains 3 programs that can be combined but are more efficient when used separatly if outside of a personally created GUI. Use the Scrapper first to get the managers and clubs needed for the twitter accessor. The Twitter accessor will access twitter for the public tweets about the manager over the past week for weach club before using that information in the dataanal to get the sentiment for each manager.
 
 The scrapper will access websites that contain some of the basic information needed for the program, such as managers, clubs and Twitter handles. This information onl needs to be updated when new managers are introduced into clubs and can be held and rewriten on your computer where you chose.
 
